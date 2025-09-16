@@ -18,8 +18,15 @@ export default function Button({
   const baseClasses = 'font-semibold rounded-lg transition-opacity duration-200 hover:opacity-90';
 
   const variantClasses = {
-    primary: 'bg-accent-main text-gray-900',
+    primary: 'text-white',
     secondary: 'bg-gray-100 text-gray-900',
+  };
+
+  const variantStyles = {
+    primary: {
+      background: 'linear-gradient(135deg, #ff6b35, #f39c12)',
+    },
+    secondary: {},
   };
 
   const sizeClasses = {
@@ -30,6 +37,7 @@ export default function Button({
   return (
     <button
       className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
+      style={variantStyles[variant]}
       {...props}
     >
       {children}

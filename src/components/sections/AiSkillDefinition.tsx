@@ -11,7 +11,7 @@ export default function AiSkillDefinition() {
   return (
     <section className="section-spacing bg-white">
       <Container>
-        <div className="space-y-xl">
+        <div className="space-y-lg">
           <div className="text-center">
             <div className="bg-accent-main py-3 px-6 rounded-lg inline-block">
               <h2 className="text-h2 text-gray-900">

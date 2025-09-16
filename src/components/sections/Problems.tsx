@@ -11,7 +11,7 @@ export default function Problems() {
     <section
       style={{
         backgroundColor: 'white',
-        padding: '32px 16px',
+        padding: '24px 16px',
       }}
     >
       <Container>

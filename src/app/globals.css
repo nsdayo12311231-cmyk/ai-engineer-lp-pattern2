@@ -23,7 +23,7 @@
   }
 
   .section-spacing {
-    @apply py-lg;
+    @apply py-md;
   }
 
   .card-style {

@@ -19,21 +19,66 @@ export default function OtherSeminars() {
             </div>
           </div>
 
-          <div className="border-l-4 border-red-500 bg-red-50 p-6 rounded-r-lg">
-            <div className="space-y-3">
-              {commonProblems.map((problem, index) => (
-                <div key={index} className="flex items-start space-x-3">
-                  <span className="text-red-600 text-xl">❌</span>
-                  <p className="text-base text-gray-700">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            {commonProblems.map((problem, index) => (
+              <div
+                key={index}
+                style={{
+                  backgroundImage: 'url(/hero-background.jpg)',
+                  backgroundSize: 'cover',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'center',
+                  position: 'relative',
+                  borderRadius: '12px',
+                  padding: '20px',
+                  minHeight: '80px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  overflow: 'hidden'
+                }}
+              >
+                {/* 70% ダークオーバーレイ */}
+                <div style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                  borderRadius: '12px',
+                  zIndex: 1
+                }}></div>
+
+                {/* コンテンツ */}
+                <div style={{
+                  position: 'relative',
+                  zIndex: 2,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  width: '100%'
+                }}>
+                  <span style={{
+                    fontSize: '20px',
+                    color: '#ff3131'
+                  }}>❌</span>
+                  <p style={{
+                    fontSize: '16px',
+                    lineHeight: '1.6',
+                    color: 'white',
+                    margin: 0,
+                    fontWeight: 'normal',
+                    textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
+                  }}>
                     {problem}
                   </p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
 
-          <div className="bg-bg-info p-4 rounded-lg">
-            <div className="space-y-2 text-center">
+          <div className="text-center">
+            <div className="space-y-2">
               <p className="font-bold text-blue-600">
                 👉 多くのセミナーは"知識止まり"
               </p>
