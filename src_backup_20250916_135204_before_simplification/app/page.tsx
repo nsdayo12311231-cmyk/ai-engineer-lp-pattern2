@@ -1,12 +1,12 @@
-import Header from '../components/layout/Header';
-import FixedCTA from '../components/layout/FixedCTA';
-import Hero from '../components/sections/Hero';
-import Problems from '../components/sections/Problems';
-import Solution from '../components/sections/Solution';
-import AiSkillDefinition from '../components/sections/AiSkillDefinition';
-import WhyAiSkill from '../components/sections/WhyAiSkill';
-import OtherSeminars from '../components/sections/OtherSeminars';
-import SeminarBenefits from '../components/sections/SeminarBenefits';
+import Header from '@/components/layout/Header';
+import FixedCTA from '@/components/layout/FixedCTA';
+import Hero from '@/components/sections/Hero';
+import Problems from '@/components/sections/Problems';
+import Solution from '@/components/sections/Solution';
+import AiSkillDefinition from '@/components/sections/AiSkillDefinition';
+import WhyAiSkill from '@/components/sections/WhyAiSkill';
+import OtherSeminars from '@/components/sections/OtherSeminars';
+import SeminarBenefits from '@/components/sections/SeminarBenefits';
 
 export default function Home() {
   return (
