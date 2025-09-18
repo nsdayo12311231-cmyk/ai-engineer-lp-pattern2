@@ -1,72 +1,105 @@
-import Container from '../ui/Container';
-import Card from '../ui/Card';
+import React from 'react';
 
 export default function SeminarBenefits() {
   const benefits = [
-    '低単価副業から抜け出すロードマップ',
-    '高単価案件を取るためのAIエンジニア思考',
-    '3ヶ月で単価5倍を狙う学習ステップ',
-    '案件獲得につながる具体的スキルマップ',
-  ];
-
-  const bonuses = [
     {
-      title: '「高単価案件提案書フォーマット」',
-      description: '→ 実際に案件獲得で使用された"生きた提案書"を公開！',
+      pc: '低単価副業から抜け出すロードマップ',
+      mobile: '・低単価副業から抜け出すロードマップ'
     },
     {
-      title: '「2025年AI副業案件相場レポート」',
-      description: '→ 未公開データで、今後伸びる副業領域と案件相場を一挙解説',
+      pc: '高単価案件を取るためのAIエンジニア思考',
+      mobile: '・高単価案件を取るための\nAIエンジニア思考'
     },
+    {
+      pc: '3ヶ月で単価5倍を狙う学習ステップ',
+      mobile: '・3ヶ月で単価5倍を狙う学習ステップ'
+    },
+    {
+      pc: '案件獲得に役立つスキルマップ',
+      mobile: '・案件獲得に役立つスキルマップ'
+    }
   ];
 
   return (
-    <section className="section-spacing bg-bg-secondary">
-      <Container>
-        <div className="space-y-xl">
-          <div className="text-center">
-            <div className="bg-accent-main py-3 px-6 rounded-lg inline-block">
-              <h2 className="text-h2 text-gray-900">
-                🎯 このセミナーで得られること
-              </h2>
-            </div>
+    <section style={{ backgroundColor: 'white' }} className="md:py-15 py-5">
+      <div
+        style={{
+          width: '90%',
+          maxWidth: 'none',
+          margin: '0 auto'
+        }}
+      >
+        {/* 白いボックス全体 */}
+        <div
+          style={{
+            background: 'white',
+            borderRadius: '12px',
+            border: '2px solid #e5e7eb',
+            textAlign: 'center'
+          }}
+          className="md:p-10 p-5"
+        >
+          {/* タイトル */}
+          <h2
+            style={{
+              fontWeight: 'bold',
+              color: '#333',
+              marginBottom: '40px'
+            }}
+            className="md:text-[36px] text-[28px]"
+          >
+            <span className="hidden md:inline">このセミナーで得られること</span>
+            <span className="md:hidden" style={{ whiteSpace: 'pre-line' }}>
+              このセミナーで{"\n"}得られること
+            </span>
+          </h2>
+
+          {/* セミナー画像 */}
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              marginBottom: '40px'
+            }}
+          >
+            <img
+              src="/semina.png"
+              alt="セミナーのイラスト"
+              style={{
+                maxWidth: '300px',
+                width: '100%',
+                height: 'auto'
+              }}
+            />
           </div>
 
-          <Card>
-            <div className="space-y-4">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-start space-x-3">
-                  <span className="text-green-600 text-xl">✅</span>
-                  <p className="text-base text-gray-700 leading-relaxed">
-                    {benefit}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Card>
-
-          <div className="bg-accent-main p-4 rounded-lg">
-            <h3 className="text-h3 text-gray-900 text-center mb-4">
-              🎁 参加者限定特典
-            </h3>
-            <div className="space-y-3">
-              {bonuses.map((bonus, index) => (
-                <div key={index} className="space-y-1">
-                  <p className="font-bold text-gray-900">
-                    • {bonus.title}
-                  </p>
-                  <p className="text-sm text-gray-700 ml-4">
-                    {bonus.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <p className="text-center font-bold text-text-emphasis mt-4">
-              👉 今しか手に入らない2大特典です
-            </p>
+          {/* ベネフィット一覧 */}
+          <div
+            style={{
+              textAlign: 'center',
+              maxWidth: '600px',
+              margin: '0 auto'
+            }}
+          >
+            {benefits.map((benefit, index) => (
+              <div
+                key={index}
+                style={{
+                  marginBottom: index < benefits.length - 1 ? '20px' : '0',
+                  lineHeight: '1.6',
+                  fontWeight: 'bold'
+                }}
+                className="md:text-[20px] text-[16px]"
+              >
+                <p style={{ color: '#374151', margin: 0, whiteSpace: 'pre-line' }}>
+                  <span className="hidden md:inline">{benefit.pc}</span>
+                  <span className="md:hidden">{benefit.mobile}</span>
+                </p>
+              </div>
+            ))}
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

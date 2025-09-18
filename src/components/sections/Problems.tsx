@@ -2,106 +2,105 @@ import Container from '../ui/Container';
 
 export default function Problems() {
   const problems = [
-    '動画を見て終わり',
-    '資格取得やノウハウコレクターで終わる',
-    '「副業で稼げる」と言うだけで実務に直結しない',
+    { pc: '低単価案件ばかりで、時間だけ消耗している', mobile: '低単価案件ばかりで、\n時間だけ消耗している' },
+    { pc: '副業を続けても、収入が頭打ちで将来が見えない', mobile: '副業を続けても、\n収入が頭打ちで将来が見えない' },
+    { pc: 'AIを学んだが実務に直結しない', mobile: 'AIを学んだが\n実務に直結しない' },
   ];
 
   return (
     <section
       style={{
         backgroundColor: 'white',
-        padding: '24px 16px',
+        padding: '40px 16px',
       }}
     >
       <Container>
-        <div style={{
-          maxWidth: '500px',
-          margin: '0 auto',
-          textAlign: 'center'
-        }}>
+        <div
+          style={{
+            margin: '0 auto',
+            textAlign: 'center',
+            width: '90%',
+            maxWidth: 'none'
+          }}
+        >
           <div
             style={{
-              backgroundImage: 'url(/hero-background.jpg)',
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center',
-              position: 'relative',
-              borderRadius: '12px',
-              padding: '16px',
-              overflow: 'hidden'
+              backgroundColor: 'white',
+              border: '2px solid #e5e7eb',
+              borderRadius: '16px',
+              padding: '60px 40px',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
             }}
+            className="md:p-16 p-5"
           >
-            {/* 70% ダークオーバーレイ */}
-            <div style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: 'rgba(0, 0, 0, 0.7)',
-              borderRadius: '12px',
-              zIndex: 1
-            }}></div>
-
-            {/* コンテンツ */}
-            <div style={{
-              position: 'relative',
-              zIndex: 2,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              textAlign: 'center',
-              padding: '4px 20px'
-            }}>
-              <h2 style={{
-                fontSize: '22px',
+            {/* タイトル */}
+            <h2
+              style={{
                 fontWeight: 'bold',
-                color: 'white',
+                color: '#1f2937',
                 textAlign: 'center',
-                textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
-                margin: '0 0 24px 0'
-              }}>
-                💭 こんな悩みを感じていませんか？
-              </h2>
+                margin: '0 0 32px 0',
+                lineHeight: '1.3'
+              }}
+              className="md:text-[40px] text-[24px]"
+            >
+              <span className="hidden md:inline">こんな悩みを感じていませんか？</span>
+              <span className="md:hidden" style={{ whiteSpace: 'pre-line' }}>
+                こんな悩みを{'\n'}感じていませんか？
+              </span>
+            </h2>
 
-              <div style={{
+            {/* イラスト */}
+            <div
+              style={{
                 display: 'flex',
-                flexDirection: 'column',
-                gap: '16px',
-                width: '100%',
-                maxWidth: '400px'
-              }}>
-                {problems.map((problem, index) => (
-                  <div
-                    key={index}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'flex-start',
-                      gap: '16px',
-                      textAlign: 'left'
-                    }}
+                justifyContent: 'center',
+                marginBottom: '32px'
+              }}
+            >
+              <img
+                src="/jitumu.png"
+                alt="悩んでいる女性のイラスト"
+                style={{
+                  maxWidth: '400px',
+                  width: '100%',
+                  height: 'auto'
+                }}
+              />
+            </div>
+
+            {/* 問題リスト */}
+            <div
+              style={{
+                textAlign: 'center',
+                maxWidth: '900px',
+                margin: '0 auto'
+              }}
+            >
+              {problems.map((problem, index) => (
+                <div
+                  key={index}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    justifyContent: 'center',
+                    marginBottom: index < problems.length - 1 ? '12px' : '0'
+                  }}
+                >
+                  <p style={{
+                    lineHeight: '1.6',
+                    color: '#1f2937',
+                    margin: 0,
+                    fontWeight: 'bold',
+                    whiteSpace: 'pre-line'
+                  }}
+                  className="md:text-[24px] text-[18px]"
                   >
-                    <span style={{
-                      fontSize: '22px',
-                      color: '#ff3131',
-                      lineHeight: '1',
-                      marginTop: '2px',
-                      flexShrink: 0
-                    }}>❌</span>
-                    <p style={{
-                      fontSize: '16px',
-                      lineHeight: '1.6',
-                      color: 'white',
-                      margin: 0,
-                      fontWeight: 'normal',
-                      textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
-                    }}>
-                      {problem}
-                    </p>
-                  </div>
-                ))}
-              </div>
+                    <span className="hidden md:inline">{problem.pc}</span>
+                    <span className="md:hidden">{problem.mobile}</span>
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

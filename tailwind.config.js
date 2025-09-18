@@ -25,8 +25,8 @@ module.exports = {
       },
       fontSize: {
         'h1': ['24px', { lineHeight: '1.3', fontWeight: 'bold' }],
-        'h2': ['20px', { lineHeight: '1.4', fontWeight: 'bold' }],
-        'h3': ['18px', { lineHeight: '1.4', fontWeight: '600' }],
+        'h2': ['26px', { lineHeight: '1.4', fontWeight: 'bold' }],
+        'h3': ['24px', { lineHeight: '1.4', fontWeight: '600' }],
         'number': ['28px', { lineHeight: '1.2', fontWeight: 'bold' }],
         'cta': ['18px', { lineHeight: '1.3', fontWeight: '600' }],
       },

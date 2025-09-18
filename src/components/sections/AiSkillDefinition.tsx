@@ -1,39 +1,95 @@
-import Container from '../ui/Container';
-import Card from '../ui/Card';
+import React from 'react';
 
 export default function AiSkillDefinition() {
   const skillPoints = [
-    'AIを組み込んだ業務効率化ツールや副業サービスを自分で開発できる',
-    '「使うだけ」ではなく「作れる」から、希少価値の高い人材になれる',
-    '3ヶ月の学習で、副業単価を数倍に引き上げることも可能',
+    {
+      pc: 'AIを組み込んだ業務効率化ツールや副業サービスを自分で開発できる',
+      mobile: 'AIを組み込んだ業務効率化ツールや\n副業サービスを自分で開発できる'
+    },
+    {
+      pc: '「使うだけ」ではなく「作れる」から、希少価値の高い人材になれる',
+      mobile: '「使うだけ」ではなく「作れる」から、\n希少価値の高い人材になれる'
+    },
+    {
+      pc: '3ヶ月の学習で、副業単価を数倍に引き上げることも可能',
+      mobile: '3ヶ月の学習で副業単価を\n数倍に引き上げることも可能'
+    },
   ];
 
   return (
-    <section className="section-spacing bg-white">
-      <Container>
-        <div className="space-y-lg">
-          <div className="text-center">
-            <div className="bg-accent-main py-3 px-6 rounded-lg inline-block">
-              <h2 className="text-h2 text-gray-900">
-                🤖 AIエンジニアスキルとは？
-              </h2>
-            </div>
-          </div>
+    <section style={{ backgroundColor: 'white' }} className="md:py-15 py-5">
+      <div
+        style={{
+          width: '90%',
+          maxWidth: 'none',
+          margin: '0 auto',
+          background: 'white',
+          borderRadius: '12px',
+          border: '2px solid #e5e7eb',
+          textAlign: 'center'
+        }}
+        className="md:p-10 p-5"
+      >
+        {/* タイトル */}
+        <h2
+          style={{
+            fontWeight: 'bold',
+            marginBottom: '40px',
+            color: '#333',
+            display: 'block',
+            fontSize: 'clamp(24px, 5vw, 32px)'
+          }}
+        >
+          AIエンジニアスキルとは？
+        </h2>
 
-          <Card>
-            <div className="space-y-4">
-              {skillPoints.map((point, index) => (
-                <div key={index} className="flex items-start space-x-3">
-                  <span className="text-green-600 text-xl">✅</span>
-                  <p className="text-base text-gray-700 leading-relaxed">
-                    {point}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Card>
+        {/* メイン画像 */}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            marginBottom: '40px'
+          }}
+        >
+          <img
+            src="/lp3.png"
+            alt="AIエンジニアのイラスト"
+            style={{
+              maxWidth: '400px',
+              width: '100%',
+              height: 'auto',
+              borderRadius: '12px'
+            }}
+          />
         </div>
-      </Container>
+
+        {/* スキルポイント */}
+        <div
+          style={{
+            textAlign: 'center',
+            maxWidth: '800px',
+            margin: '0 auto'
+          }}
+        >
+          {skillPoints.map((point, index) => (
+            <div
+              key={index}
+              style={{
+                display: 'flex',
+                alignItems: 'flex-start',
+                justifyContent: 'center',
+                marginBottom: index < skillPoints.length - 1 ? '20px' : '0',
+                lineHeight: '1.6'
+              }}
+            >
+              <p style={{ color: '#374151', margin: 0, whiteSpace: 'pre-line', fontWeight: 'bold', fontSize: 'clamp(14px, 3.5vw, 18px)' }}>
+                <span className="hidden md:inline">{point.pc}</span>
+                <span className="md:hidden">{point.mobile}</span>
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

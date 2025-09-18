@@ -1,26 +1,6 @@
-import Container from '../ui/Container';
+import React from 'react';
 
 export default function WhyAiSkill() {
-  const reasons = [
-    {
-      icon: '💡',
-      text: '世界規模でAI人材不足、日本は特に遅れ',
-    },
-    {
-      icon: '⚡',
-      text: '生成AIの普及で「誰でもできる作業」は淘汰される',
-    },
-    {
-      icon: '🚀',
-      text: '「作れる人」は副業・キャリア双方で需要拡大',
-    },
-    {
-      icon: '👉',
-      text: '今学ぶことで先行者メリットを得られる絶好のチャンス！',
-      isSpecial: true,
-    },
-  ];
-
   return (
     <section
       style={{
@@ -28,13 +8,9 @@ export default function WhyAiSkill() {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-        position: 'relative',
-        minHeight: '250px',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        padding: '24px 0'
+        position: 'relative'
       }}
+      className="md:py-15 py-5"
     >
       {/* ダークオーバーレイ（70%） */}
       <div style={{
@@ -46,51 +22,241 @@ export default function WhyAiSkill() {
         backgroundColor: 'rgba(0, 0, 0, 0.7)',
         zIndex: 1
       }}></div>
-
-      {/* コンテンツ */}
-      <Container>
-        <div style={{
+      <div
+        style={{
+          width: '90%',
+          maxWidth: 'none',
+          margin: '0 auto',
+          textAlign: 'center',
           position: 'relative',
-          zIndex: 2,
-          textAlign: 'left',
-          color: 'white',
-          maxWidth: '500px',
-          margin: '0 auto'
-        }}>
-          <h2 style={{
-            fontSize: '20px',
+          zIndex: 2
+        }}
+      >
+        {/* タイトル */}
+        <h2
+          style={{
             fontWeight: 'bold',
-            marginBottom: '20px',
+            marginBottom: '40px',
             color: 'white',
-            textAlign: 'center',
-            textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
-          }}>
-            🌟 なぜ今AIスキルなのか？
-          </h2>
+            textAlign: 'center'
+          }}
+          className="md:text-[36px] text-[28px]"
+        >
+          なぜ今AIスキルなのか？
+        </h2>
 
-          <div>
-            {reasons.map((reason, index) => (
-              <div key={index} style={{
+        {/* 3つの白いカード */}
+        <div
+          style={{
+            display: 'flex',
+            gap: '20px',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            alignItems: 'center',
+            maxWidth: '1200px',
+            margin: '0 auto'
+          }}
+          className="md:flex-row flex-col"
+        >
+          {/* カード1: AI人材不足 */}
+          <div
+            style={{
+              background: 'white',
+              padding: '30px',
+              borderRadius: '12px',
+              flex: '1',
+              minWidth: '300px',
+              maxWidth: '350px',
+              textAlign: 'center'
+            }}
+          >
+            <div
+              style={{
                 display: 'flex',
-                alignItems: 'flex-start',
-                marginBottom: index < reasons.length - 1 ? '16px' : '0',
-                gap: '12px'
-              }}>
-                <span style={{ fontSize: '20px' }}>{reason.icon}</span>
-                <p style={{
-                  fontSize: '16px',
+                justifyContent: 'center',
+                marginBottom: '20px'
+              }}
+            >
+              <img
+                src="/fusoku.png"
+                alt="AI人材不足のイラスト"
+                style={{
+                  maxWidth: '200px',
+                  width: '100%',
+                  height: 'auto'
+                }}
+              />
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <p
+                style={{
+                  fontWeight: 'bold',
+                  color: '#333',
                   lineHeight: '1.6',
-                  color: reason.isSpecial ? '#ff3131' : 'white',
-                  fontWeight: reason.isSpecial ? 'bold' : 'normal',
-                  textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
-                }}>
-                  {reason.text}
-                </p>
-              </div>
-            ))}
+                  margin: '5px 0'
+                }}
+                className="md:text-[16px] text-[14px]"
+              >
+                日本はAI人材が不足。
+              </p>
+              <p
+                style={{
+                  fontWeight: 'bold',
+                  color: '#333',
+                  lineHeight: '1.6',
+                  margin: '5px 0'
+                }}
+                className="md:text-[16px] text-[14px]"
+              >
+                数十万人規模とも言われ、
+              </p>
+              <p
+                style={{
+                  fontWeight: 'bold',
+                  color: '#333',
+                  lineHeight: '1.6',
+                  margin: '5px 0'
+                }}
+                className="md:text-[16px] text-[14px]"
+              >
+                海外との差が開きつつある。
+              </p>
+            </div>
+          </div>
+
+          {/* カード2: 生成AIの普及 */}
+          <div
+            style={{
+              background: 'white',
+              padding: '30px',
+              borderRadius: '12px',
+              flex: '1',
+              minWidth: '300px',
+              maxWidth: '350px',
+              textAlign: 'center'
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                marginBottom: '20px'
+              }}
+            >
+              <img
+                src="/tota.png"
+                alt="生成AIの普及イラスト"
+                style={{
+                  maxWidth: '200px',
+                  width: '100%',
+                  height: 'auto'
+                }}
+              />
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <p
+                style={{
+                  fontWeight: 'bold',
+                  color: '#333',
+                  lineHeight: '1.6',
+                  margin: '5px 0'
+                }}
+                className="md:text-[16px] text-[14px]"
+              >
+                生成AIの普及で、
+              </p>
+              <p
+                style={{
+                  fontWeight: 'bold',
+                  color: '#333',
+                  lineHeight: '1.6',
+                  margin: '5px 0'
+                }}
+                className="md:text-[16px] text-[14px]"
+              >
+                "使えるだけ"では淘汰される。
+              </p>
+              <p
+                style={{
+                  fontWeight: 'bold',
+                  color: '#333',
+                  lineHeight: '1.6',
+                  margin: '5px 0'
+                }}
+                className="md:text-[16px] text-[14px]"
+              >
+                逆に"作れる人材"は希少価値が高い。
+              </p>
+            </div>
+          </div>
+
+          {/* カード3: スキルの需要拡大 */}
+          <div
+            style={{
+              background: 'white',
+              padding: '30px',
+              borderRadius: '12px',
+              flex: '1',
+              minWidth: '300px',
+              maxWidth: '350px',
+              textAlign: 'center'
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                marginBottom: '20px'
+              }}
+            >
+              <img
+                src="/caria.png"
+                alt="キャリアアップイラスト"
+                style={{
+                  maxWidth: '200px',
+                  width: '100%',
+                  height: 'auto'
+                }}
+              />
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <p
+                style={{
+                  fontWeight: 'bold',
+                  color: '#333',
+                  lineHeight: '1.6',
+                  margin: '5px 0'
+                }}
+                className="md:text-[16px] text-[14px]"
+              >
+                一度スキルを身につければ、
+              </p>
+              <p
+                style={{
+                  fontWeight: 'bold',
+                  color: '#333',
+                  lineHeight: '1.6',
+                  margin: '5px 0'
+                }}
+                className="md:text-[16px] text-[14px]"
+              >
+                副業の案件獲得からキャリアアップまで、
+              </p>
+              <p
+                style={{
+                  fontWeight: 'bold',
+                  color: '#333',
+                  lineHeight: '1.6',
+                  margin: '5px 0'
+                }}
+                className="md:text-[16px] text-[14px]"
+              >
+                長期的に需要が拡大する。
+              </p>
+            </div>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }
