@@ -1,20 +1,19 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Hero() {
-  const [currentPattern, setCurrentPattern] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const urlParams = new URLSearchParams(window.location.search);
-      const pattern = urlParams.get('pattern');
-      if (pattern) {
-        const validPattern = parseInt(pattern, 10);
-        if (validPattern >= 1 && validPattern <= 3) {
-          return validPattern;
-        }
+  const [currentPattern, setCurrentPattern] = useState(1);
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const pattern = urlParams.get('pattern');
+    if (pattern) {
+      const validPattern = parseInt(pattern, 10);
+      if (validPattern >= 1 && validPattern <= 3) {
+        setCurrentPattern(validPattern);
       }
     }
-    return 1;
-  });
+  }, []);
 
   return (
     <section className="bg-white" style={{ margin: 0, padding: 0, marginTop: '60px', position: 'relative' }}>
