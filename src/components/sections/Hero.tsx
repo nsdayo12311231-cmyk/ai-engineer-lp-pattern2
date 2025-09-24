@@ -7,16 +7,24 @@ export default function Hero() {
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const pattern = urlParams.get('pattern');
+    console.log('URL Pattern:', pattern);
+    console.log('Current URL:', window.location.href);
     if (pattern) {
       const validPattern = parseInt(pattern, 10);
+      console.log('Valid Pattern:', validPattern);
       if (validPattern >= 1 && validPattern <= 3) {
         setCurrentPattern(validPattern);
+        console.log('Set Pattern to:', validPattern);
       }
     }
   }, []);
 
   return (
     <section className="bg-white" style={{ margin: 0, padding: 0, marginTop: '60px', position: 'relative' }}>
+      {/* 一時的なデバッグ表示 */}
+      <div style={{ position: 'absolute', top: '10px', left: '10px', background: 'blue', color: 'white', padding: '5px', zIndex: 1000 }}>
+        Current: {currentPattern}
+      </div>
       <div className="w-full" style={{ margin: 0, padding: 0 }}>
         {/* モバイル用画像 */}
         <img
