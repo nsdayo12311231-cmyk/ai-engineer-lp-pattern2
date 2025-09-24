@@ -18,10 +18,6 @@ export default function Hero() {
 
   return (
     <section className="bg-white" style={{ margin: 0, padding: 0, marginTop: '60px', position: 'relative' }}>
-      {/* デバッグ用 */}
-      <div style={{ position: 'absolute', top: '10px', left: '10px', background: 'red', color: 'white', padding: '5px', zIndex: 1000 }}>
-        Pattern: {currentPattern}
-      </div>
       <div className="w-full" style={{ margin: 0, padding: 0 }}>
         {/* モバイル用画像 */}
         <img
