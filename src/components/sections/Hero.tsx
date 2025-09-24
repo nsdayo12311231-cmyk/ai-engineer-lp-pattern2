@@ -9,7 +9,7 @@ export default function Hero() {
     const pattern = urlParams.get('pattern');
     if (pattern) {
       const validPattern = parseInt(pattern, 10);
-      if (validPattern >= 1 && validPattern <= 3) {
+      if (validPattern >= 1 && validPattern <= 2) {
         setCurrentPattern(validPattern);
       }
     }
@@ -21,13 +21,13 @@ export default function Hero() {
         {/* モバイル用画像 */}
         <img
           className="block md:hidden w-full cursor-pointer"
-          src={currentPattern === 1 ? '/hero-mobile-1.png' : currentPattern === 2 ? '/hero-mobile-2.png' : '/hero-mobile-3.png'}
+          src={currentPattern === 1 ? '/hero-mobile-1.png' : '/hero-mobile-2.png'}
           alt="AI Engineer Hero"
           onClick={() => {
             if (typeof window !== 'undefined' && window.fbq) {
               window.fbq('track', 'Lead');
             }
-            window.open('https://line.me/R/ti/p/@your_line_id', '_blank');
+            window.open('https://lin.ee/t4LoPRo', '_blank');
           }}
           style={{
             width: '100vw',
@@ -42,13 +42,13 @@ export default function Hero() {
         {/* デスクトップ用画像 */}
         <img
           className="hidden md:block w-full cursor-pointer"
-          src={currentPattern === 1 ? '/hero-desktop-1.png' : currentPattern === 2 ? '/hero-desktop-2.png' : '/hero-desktop-3.png'}
+          src={currentPattern === 1 ? '/hero-desktop-1.png' : '/hero-desktop-2.png'}
           alt="AI Engineer Hero"
           onClick={() => {
             if (typeof window !== 'undefined' && window.fbq) {
               window.fbq('track', 'Lead');
             }
-            window.open('https://line.me/R/ti/p/@your_line_id', '_blank');
+            window.open('https://lin.ee/t4LoPRo', '_blank');
           }}
           style={{
             width: '100vw',

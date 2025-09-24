@@ -13,7 +13,7 @@ export default function FixedCTA() {
           if (typeof window !== 'undefined' && window.fbq) {
             window.fbq('track', 'Lead');
           }
-          window.open('https://line.me/R/ti/p/@your_line_id', '_blank');
+          window.open('https://lin.ee/t4LoPRo', '_blank');
         }}
       >
         📱 無料セミナーに参加する
