@@ -22,7 +22,7 @@ export default function Hero() {
         {/* モバイル用画像 */}
         <img
           className="block md:hidden w-full cursor-pointer"
-          src={currentPattern === 1 ? '/hero-mobile-1.png' : currentPattern === 2 ? '/hero-mobile-pattern2.png' : '/hero-mobile-pattern3.png'}
+          src={currentPattern === 1 ? '/hero-mobile-1.png' : currentPattern === 2 ? '/hero-mobile-2.png' : '/hero-mobile-3.png'}
           alt="AI Engineer Hero"
           onClick={() => {
             if (typeof window !== 'undefined' && window.fbq) {
@@ -43,7 +43,7 @@ export default function Hero() {
         {/* デスクトップ用画像 */}
         <img
           className="hidden md:block w-full cursor-pointer"
-          src={currentPattern === 1 ? '/hero-desktop-1.png' : currentPattern === 2 ? '/hero-desktop-pattern2.png' : '/hero-desktop-pattern3.png'}
+          src={currentPattern === 1 ? '/hero-desktop-1.png' : currentPattern === 2 ? '/hero-desktop-2.png' : '/hero-desktop-3.png'}
           alt="AI Engineer Hero"
           onClick={() => {
             if (typeof window !== 'undefined' && window.fbq) {
