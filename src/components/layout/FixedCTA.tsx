@@ -9,7 +9,12 @@ export default function FixedCTA() {
         variant="primary"
         size="large"
         className="w-full"
-        onClick={() => window.open('https://example.com/seminar', '_blank')}
+        onClick={() => {
+          if (typeof window !== 'undefined' && window.fbq) {
+            window.fbq('track', 'Lead');
+          }
+          window.open('https://line.me/R/ti/p/@your_line_id', '_blank');
+        }}
       >
         📱 無料セミナーに参加する
       </Button>
