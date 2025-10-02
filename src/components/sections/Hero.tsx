@@ -2,18 +2,71 @@
 import React, { useState, useEffect } from 'react';
 
 export default function Hero() {
-  const [currentPattern, setCurrentPattern] = useState(1);
-
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const pattern = urlParams.get('pattern');
-    if (pattern) {
-      const validPattern = parseInt(pattern, 10);
-      if (validPattern >= 1 && validPattern <= 3) {
-        setCurrentPattern(validPattern);
+  // URLパラメータを初期化時に読み取ってチラつきを防ぐ
+  const [currentPattern, setCurrentPattern] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const pattern = urlParams.get('pattern');
+      if (pattern) {
+        const validPattern = parseInt(pattern, 10);
+        if (validPattern >= 1 && validPattern <= 3) {
+          return validPattern;
+        }
       }
     }
+    return 1; // デフォルトはパターン1
+  });
+
+  // サーバー/クライアント間のハイドレーションエラーを防ぐ
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
   }, []);
+
+  // ローディングスケルトン表示（サーバーサイド & 初回レンダリング）
+  if (!isMounted) {
+    return (
+      <section className="bg-white" style={{ margin: 0, padding: 0, marginTop: '60px', position: 'relative' }}>
+        <div className="w-full" style={{ margin: 0, padding: 0 }}>
+          {/* モバイル用スケルトン */}
+          <div
+            className="block md:hidden w-full"
+            style={{
+              width: '100vw',
+              height: '667px', // 典型的なモバイル画像の高さ
+              backgroundColor: '#f0f0f0',
+              backgroundImage: 'linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%)',
+              backgroundSize: '200% 100%',
+              animation: 'loading 1.5s ease-in-out infinite',
+              margin: 0,
+              padding: 0
+            }}
+          />
+          {/* デスクトップ用スケルトン */}
+          <div
+            className="hidden md:block w-full"
+            style={{
+              width: '100vw',
+              height: '600px', // 典型的なデスクトップ画像の高さ
+              backgroundColor: '#f0f0f0',
+              backgroundImage: 'linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%)',
+              backgroundSize: '200% 100%',
+              animation: 'loading 1.5s ease-in-out infinite',
+              margin: 0,
+              padding: 0
+            }}
+          />
+        </div>
+        <style jsx>{`
+          @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+          }
+        `}</style>
+      </section>
+    );
+  }
 
   return (
     <section className="bg-white" style={{ margin: 0, padding: 0, marginTop: '60px', position: 'relative' }}>
@@ -35,7 +88,8 @@ export default function Hero() {
             maxHeight: '100vh',
             objectFit: 'contain',
             margin: 0,
-            padding: 0
+            padding: 0,
+            animation: 'fadeIn 0.3s ease-in'
           }}
         />
 
@@ -56,11 +110,18 @@ export default function Hero() {
             maxHeight: '80vh',
             objectFit: 'contain',
             margin: 0,
-            padding: 0
+            padding: 0,
+            animation: 'fadeIn 0.3s ease-in'
           }}
         />
 
       </div>
+      <style jsx>{`
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+      `}</style>
     </section>
   );
 }
